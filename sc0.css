@@ -1,1 +1,265 @@
-body{background-color:#000;overflow:hidden}.app-container{height:100vh;width:100vw;overflow:hidden}#graph-container{height:100vh;width:100vw;z-index:0}.sc-statusline-and-commandline{position:absolute;left:0;bottom:0;display:flex;flex-direction:column;align-items:stretch;width:100vw;font:11pt monospace;z-index:1000}.sc-statusline{display:flex;flex-direction:row}.sc-statusline span{padding-left:1em;padding-right:1em}.sc-statusline-mode,.sc-statusline-left{flex:0 0 auto;text-align:center}.sc-statusline-mid-left{flex:1 1 auto;text-align:left}.sc-statusline-mid-right{flex:1 1 auto;text-align:right}.sc-statusline-right{flex:0 0 auto;text-align:center}.sc-statusline-mode.sc-statusline-NORMAL{color:#335261;background-color:#b3deef}.sc-statusline-left.sc-statusline-NORMAL{color:#282828;background-color:#73cef4}.sc-statusline-mid-left.sc-statusline-NORMAL,.sc-statusline-mid-right.sc-statusline-NORMAL{color:#b3deef;background-color:#44778d}.sc-statusline-right.sc-statusline-NORMAL{color:#282828;background-color:#73cef4}.sc-statusline-mode.sc-statusline-SELECT{color:#464632;background-color:#c9d05c}.sc-statusline-left.sc-statusline-SELECT{color:#282828;background-color:#9faa00}.sc-statusline-mid-left.sc-statusline-SELECT,.sc-statusline-mid-right.sc-statusline-SELECT{color:#c9d05c;background-color:#6a6b3f}.sc-statusline-right.sc-statusline-SELECT{color:#282828;background-color:#9faa00}.sc-statusline-mode.sc-statusline-INSERT{color:#715b2f;background-color:#d3b987}.sc-statusline-left.sc-statusline-INSERT{color:#282828;background-color:#ffc24b}.sc-statusline-mid-left.sc-statusline-INSERT,.sc-statusline-mid-right.sc-statusline-INSERT{color:#d3b987;background-color:#715b2f}.sc-statusline-right.sc-statusline-INSERT{color:#282828;background-color:#ffc24b}.sc-statusline-mode.sc-statusline-EXTRACT{color:#79313c;background-color:#f43753}.sc-statusline-left.sc-statusline-EXTRACT{color:#282828;background-color:#c5152f}.sc-statusline-mid-left.sc-statusline-EXTRACT,.sc-statusline-mid-right.sc-statusline-EXTRACT{color:#f43753;background-color:#79313c}.sc-statusline-right.sc-statusline-EXTRACT{color:#282828;background-color:#c5152f}.sc-entity-info-panel{position:absolute;right:0;top:0;margin:10px;z-index:1;width:24em;border:1px solid white;background:#000c;flex-direction:column;font:10pt white}.sc-entity-info-prop-list{display:flex;flex-direction:column;width:24em}.sc-entity-info-panel input{background:none;border:none;color:#f4c753;font-family:sans-serif}.sc-entity-info-panel input:focus{border:none;outline:none}.sc-entity-info-panel textarea{background:none;border:none;outline:none;color:#f4c753;font:10pt sans-serif}::selection{background-color:#fff;color:#000}.sc-entity-info-panel input:enabled{text-decoration:1.25pt underline dotted #f4c753}.sc-entity-info-panel input{width:100%}.sc-short-property{width:24em;max-height:3ex;overflow:hidden;margin:2px;display:flex;flex-direction:row;font-size:10pt}.sc-short-property-label{font-style:italic;color:#fff;user-select:none;padding-top:3px}.sc-short-property-value{font-size:10pt}.sc-long-property{width:24em;overflow:scroll;margin:2px;display:flex;flex-direction:row}.sc-long-property-label{font-style:italic;user-select:none;color:#fff;padding-top:3px}.sc-long-property-value{color:#fff;width:85%}.sc-entity-info-picture-container{max-height:24em;min-height:24em;overflow:hidden;align-items:center;justify-content:center;display:flex}.sc-entity-info-picture{object-fit:contain;height:100%;width:100%;font-size:172pt;text-align:center;color:#fff}.sc-entity-info-name-input{font:12pt bold sans-serif;margin:2px}.sc-commandline{background:#000c;font:11pt monospace;color:#fff;border:none;outline:none;display:none}.sc-help{position:absolute;top:25%;left:25%;z-index:1000;background-color:#000c;color:#fff}.sc-help .sc-statusline-mid-left{display:block!important;color:#fff;text-align:left}.sc-help .sc-help-command{font:11pt monospace}
+/* src/index.css */
+body {
+  background-color: #000000;
+  overflow: hidden;
+}
+.app-container {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+#graph-container {
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+}
+
+/* src/statusline.css */
+.sc-statusline-and-commandline {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100vw;
+  font: 11pt monospace;
+  z-index: 1000;
+}
+.sc-statusline {
+  display: flex;
+  flex-direction: row;
+}
+.sc-statusline span {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+.sc-statusline-mode {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.sc-statusline-left {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.sc-statusline-mid-left {
+  flex: 1 1 auto;
+  text-align: left;
+}
+.sc-statusline-mid-right {
+  flex: 1 1 auto;
+  text-align: right;
+}
+.sc-statusline-right {
+  flex: 0 0 auto;
+  text-align: center;
+}
+.sc-statusline-mode.sc-statusline-NORMAL {
+  color: #335261;
+  background-color: #b3deef;
+}
+.sc-statusline-left.sc-statusline-NORMAL {
+  color: #282828;
+  background-color: #73cef4;
+}
+.sc-statusline-mid-left.sc-statusline-NORMAL {
+  color: #b3deef;
+  background-color: #44778d;
+}
+.sc-statusline-mid-right.sc-statusline-NORMAL {
+  color: #b3deef;
+  background-color: #44778d;
+}
+.sc-statusline-right.sc-statusline-NORMAL {
+  color: #282828;
+  background-color: #73cef4;
+}
+.sc-statusline-mode.sc-statusline-SELECT {
+  color: #464632;
+  background-color: #c9d05c;
+}
+.sc-statusline-left.sc-statusline-SELECT {
+  color: #282828;
+  background-color: #9faa00;
+}
+.sc-statusline-mid-left.sc-statusline-SELECT {
+  color: #c9d05c;
+  background-color: #6a6b3f;
+}
+.sc-statusline-mid-right.sc-statusline-SELECT {
+  color: #c9d05c;
+  background-color: #6a6b3f;
+}
+.sc-statusline-right.sc-statusline-SELECT {
+  color: #282828;
+  background-color: #9faa00;
+}
+.sc-statusline-mode.sc-statusline-INSERT {
+  color: #715b2f;
+  background-color: #d3b987;
+}
+.sc-statusline-left.sc-statusline-INSERT {
+  color: #282828;
+  background-color: #ffc24b;
+}
+.sc-statusline-mid-left.sc-statusline-INSERT {
+  color: #d3b987;
+  background-color: #715b2f;
+}
+.sc-statusline-mid-right.sc-statusline-INSERT {
+  color: #d3b987;
+  background-color: #715b2f;
+}
+.sc-statusline-right.sc-statusline-INSERT {
+  color: #282828;
+  background-color: #ffc24b;
+}
+.sc-statusline-mode.sc-statusline-EXTRACT {
+  color: #79313c;
+  background-color: #f43753;
+}
+.sc-statusline-left.sc-statusline-EXTRACT {
+  color: #282828;
+  background-color: #c5152f;
+}
+.sc-statusline-mid-left.sc-statusline-EXTRACT {
+  color: #f43753;
+  background-color: #79313c;
+}
+.sc-statusline-mid-right.sc-statusline-EXTRACT {
+  color: #f43753;
+  background-color: #79313c;
+}
+.sc-statusline-right.sc-statusline-EXTRACT {
+  color: #282828;
+  background-color: #c5152f;
+}
+
+/* src/info_panel.css */
+.sc-entity-info-panel {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  margin: 10px;
+  z-index: 1;
+  width: 24em;
+  border: 1px solid white;
+  background: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+  font: 10pt white;
+}
+.sc-entity-info-prop-list {
+  display: flex;
+  flex-direction: column;
+  width: 24em;
+}
+.sc-entity-info-panel input {
+  background: none;
+  border: none;
+  color: #f4c753;
+  font-family: sans-serif;
+}
+.sc-entity-info-panel input:focus {
+  border: none;
+  outline: none;
+}
+.sc-entity-info-panel textarea {
+  background: none;
+  border: none;
+  outline: none;
+  color: #f4c753;
+  font: 10pt sans-serif;
+}
+::selection {
+  background-color: white;
+  color: black;
+}
+.sc-entity-info-panel input:enabled {
+  text-decoration: 1.25pt underline dotted #f4c753;
+}
+.sc-entity-info-panel input {
+  width: 100%;
+}
+.sc-short-property {
+  width: 24em;
+  max-height: 3ex;
+  overflow: hidden;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+  font-size: 10pt;
+}
+.sc-short-property-label {
+  font-style: italic;
+  color: white;
+  user-select: none;
+  padding-top: 3px;
+}
+.sc-short-property-value {
+  font-size: 10pt;
+}
+.sc-long-property {
+  width: 24em;
+  overflow: scroll;
+  margin: 2px;
+  display: flex;
+  flex-direction: row;
+}
+.sc-long-property-label {
+  font-style: italic;
+  user-select: none;
+  color: white;
+  padding-top: 3px;
+}
+.sc-long-property-value {
+  color: white;
+  width: 85%;
+}
+.sc-entity-info-picture-container {
+  max-height: 24em;
+  min-height: 24em;
+  overflow: hidden;
+  display: inline-block;
+  align-content: center;
+}
+.sc-entity-info-picture {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+  font-size: 172pt;
+  text-align: center;
+  color: white;
+}
+.sc-entity-info-name-input {
+  font: 12pt bold sans-serif;
+  margin: 2px;
+}
+
+/* src/commandline.css */
+.sc-commandline {
+  background: rgba(0, 0, 0, 0.8);
+  font: 11pt monospace;
+  color: white;
+  border: none;
+  outline: none;
+  display: none;
+}
+
+/* src/helpdialog.css */
+.sc-help {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+}
+.sc-help .sc-statusline-mid-left {
+  display: block !important;
+  color: white;
+  text-align: left;
+}
+.sc-help .sc-help-command {
+  font: 11pt monospace;
+}
+/*# sourceMappingURL=sc0.css.map */
